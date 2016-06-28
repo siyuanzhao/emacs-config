@@ -29,7 +29,7 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (magit tangotango-theme smex jedi swiper auto-complete paradox google-this ein request websocket easy-kill)))
+    (god-mode helm popwin magit tangotango-theme smex jedi swiper auto-complete paradox ein request websocket easy-kill)))
  '(paradox-automatically-star t)
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
@@ -82,3 +82,12 @@
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "-i")
 (global-set-key (kbd "C-x g") 'magit-status)
+
+(require 'helm-config)
+(helm-mode 1)
+(global-set-key (kbd "M-x") 'helm-M-x)
+
+(require 'god-mode)
+(global-set-key (kbd "<escape>") 'god-local-mode)
+(setq god-exempt-major-modes nil)
+(setq god-exempt-predicates nil)

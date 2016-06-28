@@ -33,3 +33,9 @@ smex: https://github.com/nonsequitur/smex/<br>
 <li>
 swiper: https://github.com/abo-abo/swiper<br>
 </li>
+<li>
+god-mode: https://github.com/chrisdone/god-mode
+</li>
+<li>
+helm: https://github.com/emacs-helm/helm
+</li>
