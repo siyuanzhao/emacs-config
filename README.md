@@ -38,4 +38,10 @@ god-mode: https://github.com/chrisdone/god-mode
 </li>
 <li>
 helm: https://github.com/emacs-helm/helm
+tutorial: http://tuhdo.github.io/helm-intro.html
 </li>
+<li>
+magit: https://github.com/magit/magit
+cheat sheet: http://daemianmack.com/magit-cheatsheet.html#sec-16
+</li>
+</ul>
