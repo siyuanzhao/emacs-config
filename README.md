@@ -45,3 +45,5 @@ magit: https://github.com/magit/magit
 cheat sheet: http://daemianmack.com/magit-cheatsheet.html#sec-16
 </li>
 </ul>
+
+Evaluate init-packages.el to install packages needed for this .emacs file.
