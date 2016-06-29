@@ -38,6 +38,11 @@ tutorial: http://tuhdo.github.io/helm-intro.html
 magit: https://github.com/magit/magit
 cheat sheet: http://daemianmack.com/magit-cheatsheet.html#sec-16
 </li>
+<li>
+golden-ratio: https://github.com/roman/golden-ratio.el
+</li>
+<li>ace-window: https://github.com/abo-abo/ace-window</li>
+<li>auto-complate: https://github.com/auto-complete/auto-complete</li>
 </ul>
 
 Evaluate init-packages.el to install packages needed for this .emacs file.

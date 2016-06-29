@@ -124,3 +124,22 @@
 (helm-mode 1)
 ;; see matching pairs of parentheses
 (show-paren-mode 1)
+;; make cursor movement keys under right hand's home-row.
+(global-set-key (kbd "M-j") 'backward-char) ; was indent-new-comment-line
+(global-set-key (kbd "M-l") 'forward-char)  ; was downcase-word
+(global-set-key (kbd "M-i") 'previous-line) ; was tab-to-tab-stop
+(global-set-key (kbd "M-k") 'next-line) ; was kill-sentence
+
+(global-set-key (kbd "M-SPC") 'set-mark-command) ; was just-one-space
+(global-set-key (kbd "M-a") 'execute-extended-command) ; was backward-sentence
+;; config for ace-window
+(global-set-key (kbd "M-p") 'ace-window)
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+;; config for auto complete
+(ac-config-default)
+;; config for golden ratio
+(require 'golden-ratio)
+
+(golden-ratio-mode 1)
+;; fix for golden ratio not working with ace-window
+(add-to-list 'golden-ratio-extra-commands 'aw--callback)

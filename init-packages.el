@@ -3,7 +3,7 @@
 ;; then enter the text in that file's own buffer.
 
 ; list the packages you want
-(setq package-list '(god-mode helm easy-kill swiper smex magit elpy))
+(setq package-list '(god-mode helm easy-kill swiper smex magit elpy golden-ratio ace-window auto-complet))
 
 ; list the repositories containing them
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
