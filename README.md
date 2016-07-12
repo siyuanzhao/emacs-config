@@ -44,5 +44,6 @@ golden-ratio: https://github.com/roman/golden-ratio.el
 <li>ace-window: https://github.com/abo-abo/ace-window</li>
 <li>auto-complate: https://github.com/auto-complete/auto-complete</li>
 </ul>
+- avy: https://github.com/abo-abo/avy
 
 Evaluate init-packages.el to install packages needed for this .emacs file.
