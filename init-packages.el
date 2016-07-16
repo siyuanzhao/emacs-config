@@ -2,13 +2,14 @@
 ;; If you want to create a file, visit that file with C-x C-f,
 ;; then enter the text in that file's own buffer.
 
-; list the packages you want
-(setq package-list '(ac-math better-defaults smartparens switch-window golden-ratio god-mode helm popwin magit tangotango-theme smex jedi swiper auto-complete paradox ein request websocket easy-kill))
-
 ; list the repositories containing them
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
                          ("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")))
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+			 ("melpa" . "https://melpa.org/packages/")))
+; list the packages you want
+(setq package-list '(ac-math better-defaults smartparens switch-window golden-ratio helm popwin magit tangotango-theme jedi swiper auto-complete paradox ein request websocket easy-kill))
+
 
 ; activate all the packages (in particular autoloads)
 (package-initialize)
