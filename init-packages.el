@@ -8,7 +8,7 @@
                          ("marmalade" . "http://marmalade-repo.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")))
 ; list the packages you want
-(setq package-list '(ac-math better-defaults smartparens switch-window golden-ratio helm popwin magit tangotango-theme jedi swiper auto-complete paradox ein request websocket easy-kill))
+(setq package-list '(ac-math better-defaults smartparens switch-window golden-ratio helm popwin magit tangotango-theme jedi swiper auto-complete paradox ein request websocket easy-kill undo-tree latex-preview-pane))
 
 
 ; activate all the packages (in particular autoloads)
