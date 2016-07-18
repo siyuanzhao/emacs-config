@@ -24,12 +24,13 @@
    (quote
     ("5999e12c8070b9090a2a1bbcd02ec28906e150bb2cdce5ace4f965c76cf30476" "ad950f1b1bf65682e390f3547d479fd35d8c66cafa2b8aa28179d78122faa947" "12b4427ae6e0eef8b870b450e59e75122d5080016a9061c9696959e50d578057" "4f5bb895d88b6fe6a983e63429f154b8d939b4a8c581956493783b2515e22d6d" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "40f6a7af0dfad67c0d4df2a1dd86175436d79fc69ea61614d668a635c2cd94ab" "d1abda58eedee72fbe28bbb7a5ff1953e1b7d2fa80913bcea9cb3cf12cf751f4" default)))
  '(fci-rule-color "#383838")
+ '(max-mini-window-height 1)
  '(nrepl-message-colors
    (quote
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (ac-math better-defaults smartparens switch-window golden-ratio god-mode helm popwin magit tangotango-theme smex jedi swiper auto-complete paradox ein request websocket easy-kill)))
+    (persistent-soft undo-tree latex-preview-pane ac-math better-defaults smartparens switch-window golden-ratio helm popwin magit tangotango-theme smex jedi swiper auto-complete paradox ein request websocket easy-kill)))
  '(paradox-automatically-star t)
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
@@ -76,7 +77,7 @@
 
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
-(global-set-key (kbd "C-s") 'swiper)
+(global-set-key "\C-s" 'swiper)
 
 ;; using ipython as the Python shell
 (setq python-shell-interpreter "ipython"
@@ -92,12 +93,12 @@
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
 (global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-o") 'helm-find-files)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "M-n") 'helm-mini)
 (setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
-(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 
 (when (executable-find "curl")
   (setq helm-google-suggest-use-curl-p t))
@@ -119,25 +120,27 @@
 (global-set-key (kbd "M-l") 'forward-char)  ; was downcase-word
 (global-set-key (kbd "M-i") 'previous-line) ; was tab-to-tab-stop
 (global-set-key (kbd "M-k") 'next-line) ; was kill-sentence
-
-(global-set-key (kbd "M-SPC") 'set-mark-command) ; was just-one-space
+(global-set-key (kbd "M-a") 'move-beginning-of-line) ; was kill-sentence
+(global-set-key (kbd "M-e") 'move-end-of-line) ; was kill-sentence
+;(global-set-key (kbd "M-SPC") 'set-mark-command) ; was just-one-space
 
 ;; easy keys to split window. Key based on ErgoEmacs keybinding
-(global-set-key (kbd "M-3") 'delete-other-windows) ; expand current pane
-(global-set-key (kbd "M-4") 'split-window-below) ; split pane top/bottom
-(global-set-key (kbd "M-2") 'delete-window) ; close current pane
+;(global-set-key (kbd "M-3") 'delete-other-windows) ; expand current pane
+;(global-set-key (kbd "M-4") 'split-window-below) ; split pane top/bottom
+;(global-set-key (kbd "M-2") 'delete-window) ; close current pane
 
 
 ;;config for switch-window
 (global-set-key (kbd "M-0") 'switch-window)
 (global-set-key (kbd "C-x o") 'switch-window)
-(add-hook 'buffer-list-update-hook #'golden-ratio) 
-(add-hook 'focus-in-hook           #'golden-ratio)
-(add-hook 'focus-out-hook          #'golden-ratio)
+(add-hook 'buffer-list-update-hook #'golden-ratio)
+(add-hook 'focus-in-hook #'golden-ratio)
+(add-hook 'focus-out-hook #'golden-ratio)
 ;; config for auto-complete
 (ac-config-default)
 ;; disale auto-complete in python mode
-(defadvice auto-complete-mode (around disable-auto-complete-for-python)
+(defadvice auto-complete-mode (around
+disable-auto-complete-for-python)
   (unless (eq major-mode 'python-mode) ad-do-it))
 
 (ad-activate 'auto-complete-mode)
@@ -152,4 +155,10 @@
                ac-sources)))
 
 (add-hook 'TeX-mode-hook 'ac-latex-mode-setup)
-
+;; config for undo tree
+(require 'undo-tree)
+(global-undo-tree-mode)
+;; config for browse kill ring
+(require 'browse-kill-ring)
+(browse-kill-ring-default-keybindings)
+(setq browse-kill-ring-show-preview t)
