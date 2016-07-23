@@ -24,13 +24,13 @@
    (quote
     ("5999e12c8070b9090a2a1bbcd02ec28906e150bb2cdce5ace4f965c76cf30476" "ad950f1b1bf65682e390f3547d479fd35d8c66cafa2b8aa28179d78122faa947" "12b4427ae6e0eef8b870b450e59e75122d5080016a9061c9696959e50d578057" "4f5bb895d88b6fe6a983e63429f154b8d939b4a8c581956493783b2515e22d6d" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "40f6a7af0dfad67c0d4df2a1dd86175436d79fc69ea61614d668a635c2cd94ab" "d1abda58eedee72fbe28bbb7a5ff1953e1b7d2fa80913bcea9cb3cf12cf751f4" default)))
  '(fci-rule-color "#383838")
- '(max-mini-window-height 1)
+ '(max-mini-window-height 1.5)
  '(nrepl-message-colors
    (quote
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (persistent-soft undo-tree latex-preview-pane ac-math better-defaults smartparens switch-window golden-ratio helm popwin magit tangotango-theme smex jedi swiper auto-complete paradox ein request websocket easy-kill)))
+    (color-theme-solarized ace-jump-mode persistent-soft undo-tree latex-preview-pane ac-math better-defaults smartparens switch-window golden-ratio helm popwin magit tangotango-theme smex jedi swiper auto-complete paradox ein request websocket easy-kill)))
  '(paradox-automatically-star t)
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
@@ -162,3 +162,30 @@ disable-auto-complete-for-python)
 (require 'browse-kill-ring)
 (browse-kill-ring-default-keybindings)
 (setq browse-kill-ring-show-preview t)
+
+;;
+;; ace jump mode major function
+;; 
+(add-to-list 'load-path "/full/path/where/ace-jump-mode.el/in/")
+(autoload
+  'ace-jump-mode
+  "ace-jump-mode"
+  "Emacs quick move minor mode"
+  t)
+;; you can select the key you prefer to
+(define-key global-map (kbd "M-s") 'ace-jump-mode)
+
+;; 
+;; enable a more powerful jump back function from ace jump mode
+;;
+(autoload
+  'ace-jump-mode-pop-mark
+  "ace-jump-mode"
+  "Ace jump back:-)"
+  t)
+(eval-after-load "ace-jump-mode"
+  '(ace-jump-mode-enable-mark-sync))
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode-pop-mark)
+
+;; cofig for solarized color theme for emacs
+(load-theme 'solarized t)
