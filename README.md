@@ -22,13 +22,7 @@ EIN (Emacs Ipython Notebook): https://github.com/tkf/emacs-ipython-notebook<br>
 paradox: https://github.com/Malabarba/paradox<br>
 </li>
 <li>
-smex: https://github.com/nonsequitur/smex/<br>
-</li>
-<li>
 swiper: https://github.com/abo-abo/swiper<br>
-</li>
-<li>
-god-mode: https://github.com/chrisdone/god-mode
 </li>
 <li>
 helm: https://github.com/emacs-helm/helm
@@ -44,6 +38,12 @@ golden-ratio: https://github.com/roman/golden-ratio.el
 <li>ace-window: https://github.com/abo-abo/ace-window</li>
 <li>auto-complate: https://github.com/auto-complete/auto-complete</li>
 </ul>
-- avy: https://github.com/abo-abo/avy
+
+- color theme solarized for emacs:
+-- https://github.com/sellout/emacs-color-theme-solarized
+- ace-jump-mode:
+-- https://github.com/winterTTr/ace-jump-mode
+- better default:
+--https://github.com/technomancy/better-defaults
 
 Evaluate init-packages.el to install packages needed for this .emacs file.
