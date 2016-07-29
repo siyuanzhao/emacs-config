@@ -6,9 +6,9 @@
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
                          ("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
-			 ("melpa" . "https://melpa.org/packages/")))
+			 ("melpa" . "http://melpa.org/packages/")))
 ; list the packages you want
-(setq package-list '(ac-math better-defaults smartparens switch-window golden-ratio helm  magit tangotango-theme jedi swiper auto-complete paradox ein request websocket easy-kill undo-tree latex-preview-pane browse-kill-ring color-theme-solarized ace-jump-mode))
+(setq package-list '(ac-math better-defaults smartparens switch-window golden-ratio helm  magit tangotango-theme jedi swiper auto-complete paradox ein request websocket easy-kill undo-tree latex-preview-pane  color-theme-solarized ace-jump-mode elpy browse-kill-ring))
 
 
 ; activate all the packages (in particular autoloads)
