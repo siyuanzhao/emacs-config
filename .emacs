@@ -30,7 +30,7 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (color-theme-solarized ace-jump-mode persistent-soft undo-tree latex-preview-pane ac-math better-defaults smartparens switch-window golden-ratio helm popwin magit tangotango-theme smex jedi swiper auto-complete paradox ein request websocket easy-kill)))
+    (color-theme-solarized ace-jump-mode persistent-soft undo-tree latex-preview-pane ac-math better-defaults smartparens switch-window golden-ratio helm popwin magit jedi swiper auto-complete paradox ein request websocket easy-kill)))
  '(paradox-automatically-star t)
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
@@ -73,7 +73,7 @@
 ; setup auto-completion using EIN and Jedi together
 (add-hook 'ein:connect-mode-hook 'ein:jedi-setup)
 
-(setq paradox-github-token "b10f6c002cc92a7399547b614cb6bb331cbeff2e")
+(setq paradox-github-token "f40332426ca087839d5a906f09084c1f611b86aa")
 
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
@@ -96,6 +96,7 @@
 (global-set-key (kbd "C-o") 'helm-find-files)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "M-n") 'helm-mini)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
@@ -158,10 +159,6 @@ disable-auto-complete-for-python)
 ;; config for undo tree
 (require 'undo-tree)
 (global-undo-tree-mode)
-;; config for browse kill ring
-(require 'browse-kill-ring)
-(browse-kill-ring-default-keybindings)
-(setq browse-kill-ring-show-preview t)
 
 ;;
 ;; ace jump mode major function
