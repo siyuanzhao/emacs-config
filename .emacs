@@ -15,13 +15,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes (quote (solarized-dark)))
  '(custom-safe-themes
    (quote
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(max-mini-window-height 1.5)
  '(package-selected-packages
    (quote
-    (ace-jump-mode persistent-soft undo-tree latex-preview-pane better-defaults smartparens switch-window golden-ratio helm popwin magit swiper paradox ein request websocket easy-kill)))
+    (ace-jump-mode persistent-soft company undo-tree latex-preview-pane better-defaults smartparens switch-window golden-ratio helm popwin magit swiper paradox ein request websocket easy-kill)))
  '(paradox-automatically-star t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
