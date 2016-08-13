@@ -15,45 +15,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(ansi-color-names-vector
-   ["#504545" "#ad8572" "#a9df90" "#aaca86" "#91a0b3" "#ab85a3" "#ddbc91" "#bdbdb3"])
- '(custom-enabled-themes (quote (tangotango)))
  '(custom-safe-themes
    (quote
-    ("5999e12c8070b9090a2a1bbcd02ec28906e150bb2cdce5ace4f965c76cf30476" "ad950f1b1bf65682e390f3547d479fd35d8c66cafa2b8aa28179d78122faa947" "12b4427ae6e0eef8b870b450e59e75122d5080016a9061c9696959e50d578057" "4f5bb895d88b6fe6a983e63429f154b8d939b4a8c581956493783b2515e22d6d" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "40f6a7af0dfad67c0d4df2a1dd86175436d79fc69ea61614d668a635c2cd94ab" "d1abda58eedee72fbe28bbb7a5ff1953e1b7d2fa80913bcea9cb3cf12cf751f4" default)))
- '(fci-rule-color "#383838")
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(max-mini-window-height 1.5)
- '(nrepl-message-colors
-   (quote
-    ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (color-theme-solarized ace-jump-mode persistent-soft undo-tree latex-preview-pane ac-math better-defaults smartparens switch-window golden-ratio helm popwin magit jedi swiper auto-complete paradox ein request websocket easy-kill)))
- '(paradox-automatically-star t)
- '(vc-annotate-background "#2B2B2B")
- '(vc-annotate-color-map
-   (quote
-    ((20 . "#BC8383")
-     (40 . "#CC9393")
-     (60 . "#DFAF8F")
-     (80 . "#D0BF8F")
-     (100 . "#E0CF9F")
-     (120 . "#F0DFAF")
-     (140 . "#5F7F5F")
-     (160 . "#7F9F7F")
-     (180 . "#8FB28F")
-     (200 . "#9FC59F")
-     (220 . "#AFD8AF")
-     (240 . "#BFEBBF")
-     (260 . "#93E0E3")
-     (280 . "#6CA0A3")
-     (300 . "#7CB8BB")
-     (320 . "#8CD0D3")
-     (340 . "#94BFF3")
-     (360 . "#DC8CC3"))))
- '(vc-annotate-very-old-color "#DC8CC3"))
+    (ace-jump-mode persistent-soft undo-tree latex-preview-pane better-defaults smartparens switch-window golden-ratio helm popwin magit swiper paradox ein request websocket easy-kill)))
+ '(paradox-automatically-star t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -137,25 +106,7 @@
 (add-hook 'buffer-list-update-hook #'golden-ratio)
 (add-hook 'focus-in-hook #'golden-ratio)
 (add-hook 'focus-out-hook #'golden-ratio)
-;; config for auto-complete
-(ac-config-default)
-;; disale auto-complete in python mode
-(defadvice auto-complete-mode (around
-disable-auto-complete-for-python)
-  (unless (eq major-mode 'python-mode) ad-do-it))
 
-(ad-activate 'auto-complete-mode)
-;; config for ac-math
-(require 'ac-math) ; This is not needed when you install from MELPA
-
-(add-to-list 'ac-modes 'latex-mode)   ; make auto-complete aware of `latex-mode`
-
-(defun ac-latex-mode-setup ()         ; add ac-sources to default ac-sources
-  (setq ac-sources
-     (append '(ac-source-math-unicode ac-source-math-latex ac-source-latex-commands)
-               ac-sources)))
-
-(add-hook 'TeX-mode-hook 'ac-latex-mode-setup)
 ;; config for undo tree
 (require 'undo-tree)
 (global-undo-tree-mode)
@@ -184,5 +135,23 @@ disable-auto-complete-for-python)
   '(ace-jump-mode-enable-mark-sync))
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode-pop-mark)
 
-;; cofig for solarized color theme for emacs
-(load-theme 'solarized t)
+;; config for AUCTeX
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+(add-hook 'LaTeX-mode-hook 'visual-line-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(setq reftex-plug-into-AUCTeX t)
+
+;; config for company Math
+;; global activation of the unicode symbol completion 
+(add-to-list 'company-backends 'company-math-symbols-unicode)
+(add-hook 'TeX-mode-hook 'my-latex-mode-setup)
+
+;; replace backend of jedi
+(defun my/python-mode-hook ()
+  (add-to-list 'company-backends 'company-jedi))
+
+(add-hook 'python-mode-hook 'my/python-mode-hook)
