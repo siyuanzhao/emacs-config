@@ -1,6 +1,8 @@
 # emacs-config
 Use this repo to save my init file for emacs
 
+This readme is out-of-date. I need to update it.
+
 <b>Packages in use</b><br>
 <ul>
 <li>
