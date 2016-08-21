@@ -176,3 +176,6 @@
    '(org-clock-overlay ((t (:background "SkyBlue4" :foreground "black"))))
    '(org-headline-done ((((class color) (min-colors 16) (background dark)) (:foreground "LightSalmon" :strike-through t))))
    '(outline-1 ((t (:inherit font-lock-function-name-face :foreground "cornflower blue"))))))
+;; tweak for swiper
+(custom-set-faces
+  '(ivy-current-match ((t (:background "ForestGreen" :foreground "black")))))
