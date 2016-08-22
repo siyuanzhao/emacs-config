@@ -184,3 +184,5 @@
       mac-command-key-is-meta t
       mac-command-modifier 'meta
       mac-option-modifier 'none)
+;; set font size
+(set-face-attribute 'default nil :height 150)
