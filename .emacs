@@ -178,4 +178,9 @@
    '(outline-1 ((t (:inherit font-lock-function-name-face :foreground "cornflower blue"))))))
 ;; tweak for swiper
 (custom-set-faces
-  '(ivy-current-match ((t (:background "ForestGreen" :foreground "black")))))
+ '(ivy-current-match ((t (:background "ForestGreen" :foreground "black")))))
+;; set the meta key to be the mac key
+(setq mac-option-key-is-meta nil
+      mac-command-key-is-meta t
+      mac-command-modifier 'meta
+      mac-option-modifier 'none)
