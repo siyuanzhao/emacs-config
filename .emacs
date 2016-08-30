@@ -137,8 +137,8 @@
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode-pop-mark)
 
 ;; config for AUCTeX
-(setq TeX-auto-save t)
 (setq TeX-parse-self t)
+(setq TeX-auto-save t)
 (setq-default TeX-master nil)
 (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
@@ -186,3 +186,5 @@
       mac-option-modifier 'none)
 ;; set font size
 (set-face-attribute 'default nil :height 150)
+;; config for exec path from shell
+(exec-path-from-shell-initialize)
