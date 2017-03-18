@@ -22,14 +22,22 @@
  '(max-mini-window-height 1.5)
  '(package-selected-packages
    (quote
-    (ace-jump-mode persistent-soft company undo-tree latex-preview-pane better-defaults smartparens switch-window golden-ratio helm popwin magit swiper paradox ein request websocket easy-kill)))
+    (swiper markdown-preview-eww markdown-mode ace-jump-mode persistent-soft company undo-tree latex-preview-pane better-defaults smartparens switch-window golden-ratio helm popwin paradox request websocket easy-kill)))
  '(paradox-automatically-star t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(erc-input-face ((t (:foreground "antique white"))))
+ '(helm-selection ((t (:background "ForestGreen" :foreground "black"))))
+ '(ivy-current-match ((t (:background "ForestGreen" :foreground "black"))))
+ '(org-agenda-clocking ((t (:inherit secondary-selection :foreground "black"))) t)
+ '(org-agenda-done ((t (:foreground "dim gray" :strike-through nil))))
+ '(org-clock-overlay ((t (:background "SkyBlue4" :foreground "black"))))
+ '(org-done ((t (:foreground "PaleGreen" :weight normal :strike-through t))))
+ '(org-headline-done ((((class color) (min-colors 16) (background dark)) (:foreground "LightSalmon" :strike-through t))))
+ '(outline-1 ((t (:inherit font-lock-function-name-face :foreground "cornflower blue")))))
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings ))
 
@@ -149,7 +157,7 @@
 ;; config for company Math
 ;; global activation of the unicode symbol completion 
 (add-to-list 'company-backends 'company-math-symbols-unicode)
-(add-hook 'TeX-mode-hook 'my-latex-mode-setup)
+;;(add-hook 'TeX-mode-hook 'my-latex-mode-setup)
 
 ;; replace backend of jedi
 (defun my/python-mode-hook ()
@@ -177,8 +185,7 @@
    '(org-headline-done ((((class color) (min-colors 16) (background dark)) (:foreground "LightSalmon" :strike-through t))))
    '(outline-1 ((t (:inherit font-lock-function-name-face :foreground "cornflower blue"))))))
 ;; tweak for swiper
-(custom-set-faces
- '(ivy-current-match ((t (:background "ForestGreen" :foreground "black")))))
+
 ;; set the meta key to be the mac key
 (setq mac-option-key-is-meta nil
       mac-command-key-is-meta t
