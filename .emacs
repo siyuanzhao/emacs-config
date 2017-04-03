@@ -46,10 +46,6 @@
 
 (global-set-key [remap kill-ring-save] 'easy-kill)
 (elpy-enable)
-; configuration for emacs ipython notebook
-(require 'ein)
-; setup auto-completion using EIN and Jedi together
-(add-hook 'ein:connect-mode-hook 'ein:jedi-setup)
 
 (setq paradox-github-token "f40332426ca087839d5a906f09084c1f611b86aa")
 
@@ -192,6 +188,6 @@
       mac-command-modifier 'meta
       mac-option-modifier 'none)
 ;; set font size
-(set-face-attribute 'default nil :height 150)
+(set-face-attribute 'default nil :height 180)
 ;; config for exec path from shell
 (exec-path-from-shell-initialize)
