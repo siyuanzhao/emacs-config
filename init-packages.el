@@ -1,13 +1,10 @@
-;; This buffer is for notes you don't want to save, and for Lisp evaluation.
-;; If you want to create a file, visit that file with C-x C-f,
-;; then enter the text in that file's own buffer.
-
 ; list the repositories containing them
-(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-                         ("marmalade" . "https://marmalade-repo.org/packages/")
-			 ("melpa" . "https://melpa.org/packages/")))
+
+(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t) ; Org-mode's repository
 ; list the packages you want
-(setq package-list '(solarized-theme swiper markdown-preview-eww markdown-mode ace-jump-mode company undo-tree latex-preview-pane better-defaults smartparens switch-window golden-ratio helm popwin paradox request websocket easy-kill company-auctex))
+(setq package-list '(expand-region ein color-theme-solarized swiper helm ace-jump-mode company undo-tree latex-preview-pane better-defaults smartparens switch-window golden-ratio popwin paradox request websocket easy-kill company-auctex elpy markdown-preview-eww markdown-mode))
 
 
 ; activate all the packages (in particular autoloads)
