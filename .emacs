@@ -20,7 +20,7 @@
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(package-selected-packages
    (quote
-    (expand-region ein color-theme-solarized solarized-theme easy-kill websocket request paradox popwin helm golden-ratio switch-window smartparens better-defaults latex-preview-pane undo-tree company persistent-soft ace-jump-mode markdown-mode markdown-preview-eww swiper)))
+    (exec-path-from-shell company-jedi elpy expand-region ein color-theme-solarized solarized-theme easy-kill websocket request paradox popwin helm golden-ratio switch-window smartparens better-defaults latex-preview-pane undo-tree company persistent-soft ace-jump-mode markdown-mode markdown-preview-eww swiper)))
  '(paradox-automatically-star t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -190,3 +190,8 @@
 ;; expand region
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
+;; elpy
+(elpy-enable)
+;; exec from the path
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))

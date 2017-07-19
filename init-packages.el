@@ -1,10 +1,11 @@
 ; list the repositories containing them
 
-(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t) ; Org-mode's repository
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+			 ("melpa" . "https://melpa.org/packages/")))
+
 ; list the packages you want
-(setq package-list '(expand-region ein color-theme-solarized swiper helm ace-jump-mode company undo-tree latex-preview-pane better-defaults smartparens switch-window golden-ratio popwin paradox request websocket easy-kill company-auctex elpy markdown-preview-eww markdown-mode))
+(setq package-list '(expand-region color-theme-solarized swiper helm ace-jump-mode company company-jedi undo-tree latex-preview-pane better-defaults smartparens switch-window golden-ratio easy-kill company-auctex elpy ein markdown-mode popwin paradox request websocket))
 
 
 ; activate all the packages (in particular autoloads)
