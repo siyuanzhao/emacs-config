@@ -1,3 +1,4 @@
+
 ; list the repositories containing them
 
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
@@ -5,7 +6,7 @@
 			 ("melpa" . "https://melpa.org/packages/")))
 
 ; list the packages you want
-(setq package-list '(expand-region color-theme-solarized swiper helm ace-jump-mode company company-jedi undo-tree latex-preview-pane better-defaults smartparens switch-window golden-ratio easy-kill company-auctex elpy ein markdown-mode popwin paradox request websocket))
+(setq package-list '(expand-region color-theme-solarized swiper helm ace-jump-mode company company-jedi undo-tree exec-path-from-shell latex-preview-pane better-defaults smartparens switch-window golden-ratio easy-kill company-auctex elpy ein markdown-mode popwin paradox request websocket))
 
 
 ; activate all the packages (in particular autoloads)
