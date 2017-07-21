@@ -192,6 +192,8 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 ;; elpy
 (elpy-enable)
+;; disable C-return in elpy
+(define-key elpy-mode-map (kbd "C-<return>") nil)
 ;; exec from the path
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
