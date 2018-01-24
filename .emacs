@@ -1,9 +1,8 @@
 (require 'package) ;; You might already have this line
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+
+(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t) ; Org-mode's repository
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -19,10 +18,9 @@
  '(custom-safe-themes
    (quote
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
- '(max-mini-window-height 1.5)
  '(package-selected-packages
    (quote
-    (swiper markdown-preview-eww markdown-mode ace-jump-mode persistent-soft company undo-tree latex-preview-pane better-defaults smartparens switch-window golden-ratio helm popwin paradox request websocket easy-kill)))
+    (exec-path-from-shell company-jedi elpy expand-region ein color-theme-solarized solarized-theme easy-kill websocket request paradox popwin helm golden-ratio switch-window smartparens better-defaults latex-preview-pane undo-tree company persistent-soft ace-jump-mode markdown-mode markdown-preview-eww swiper)))
  '(paradox-automatically-star t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -31,7 +29,6 @@
  ;; If there is more than one, they won't work right.
  '(erc-input-face ((t (:foreground "antique white"))))
  '(helm-selection ((t (:background "ForestGreen" :foreground "black"))))
- '(ivy-current-match ((t (:background "ForestGreen" :foreground "black"))))
  '(org-agenda-clocking ((t (:inherit secondary-selection :foreground "black"))) t)
  '(org-agenda-done ((t (:foreground "dim gray" :strike-through nil))))
  '(org-clock-overlay ((t (:background "SkyBlue4" :foreground "black"))))
@@ -45,7 +42,8 @@
     (ido-mode t)
 
 (global-set-key [remap kill-ring-save] 'easy-kill)
-(elpy-enable)
+
+(require 'ein)
 
 (setq paradox-github-token "f40332426ca087839d5a906f09084c1f611b86aa")
 
@@ -83,7 +81,7 @@
       helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
       helm-ff-file-name-history-use-recentf t)
 
-
+(scroll-bar-mode -1)
 (show-paren-mode 1)
 
 ;; config for golden-ratio
@@ -152,7 +150,7 @@
 
 ;; config for company Math
 ;; global activation of the unicode symbol completion 
-(add-to-list 'company-backends 'company-math-symbols-unicode)
+;;(add-to-list 'company-backends 'company-math-symbols-unicode)
 ;;(add-hook 'TeX-mode-hook 'my-latex-mode-setup)
 
 ;; replace backend of jedi
@@ -189,5 +187,13 @@
       mac-option-modifier 'none)
 ;; set font size
 (set-face-attribute 'default nil :height 180)
-;; config for exec path from shell
-(exec-path-from-shell-initialize)
+;; expand region
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+;; elpy
+(elpy-enable)
+;; disable C-return in elpy
+(define-key elpy-mode-map (kbd "C-<return>") nil)
+;; exec from the path
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
