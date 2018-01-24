@@ -186,7 +186,7 @@
       mac-command-modifier 'meta
       mac-option-modifier 'none)
 ;; set font size
-(set-face-attribute 'default nil :height 180)
+(set-face-attribute 'default nil :height 160)
 ;; expand region
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
