@@ -167,29 +167,13 @@
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 
-;; tweak for solarized
-(when window-system
-  (custom-set-faces
-   '(erc-input-face ((t (:foreground "antique white"))))
-   '(helm-selection ((t (:background "ForestGreen" :foreground "black"))))
-   '(org-agenda-clocking ((t (:inherit secondary-selection :foreground "black"))) t)
-   '(org-agenda-done ((t (:foreground "dim gray" :strike-through nil))))
-   '(org-done ((t (:foreground "PaleGreen" :weight normal :strike-through t))))
-   '(org-clock-overlay ((t (:background "SkyBlue4" :foreground "black"))))
-   '(org-headline-done ((((class color) (min-colors 16) (background dark)) (:foreground "LightSalmon" :strike-through t))))
-   '(outline-1 ((t (:inherit font-lock-function-name-face :foreground "cornflower blue"))))))
-;; tweak for swiper
-
 ;; set the meta key to be the mac key
 (setq mac-option-key-is-meta nil
       mac-command-key-is-meta t
       mac-command-modifier 'meta
       mac-option-modifier 'none)
 ;; set font size
-(set-face-attribute 'default nil :height 160)
-;; expand region
-(require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
+(set-face-attribute 'default nil :height 130)
 ;; elpy
 (elpy-enable)
 ;; disable C-return in elpy
@@ -197,3 +181,10 @@
 ;; exec from the path
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
+
+(set-face-attribute 'region nil :background "#666" :foreground "#69CABF")
+(set-face-attribute 'secondary-selection nil :background "#666" :foreground "#69CABF")
+
+;; remove menu bar and task bar
+(tool-bar-mode -1)
+(menu-bar-mode -1) 
